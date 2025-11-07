@@ -28,13 +28,13 @@ export async function GET() {
 
       let category: "classes" | "events" | "studio" = "studio"
 
-      if (name.toLowerCase().includes('class') || name.toLowerCase().includes('challenge')) {
+      if (name.toLowerCase().includes('class')) {
         category = "classes"
-      } else if (name.toLowerCase().includes('event') || name.toLowerCase().includes('workshop')) {
+      } else if (name.toLowerCase().includes('event') || name.toLowerCase().includes('workshop') || name.toLowerCase().includes('challenge')) {
         category = "events"
       }
 
-      const alt = name.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+      const alt = name.replace(/[-_]/g, ' ').replace(/\d+/g, '').replace(/\b\w/g, l => l.toUpperCase()).trim()
 
       images.push({
         id: index + 1,

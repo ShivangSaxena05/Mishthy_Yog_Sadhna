@@ -13,7 +13,7 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-muted-green/40 to-muted-green/20">
+      <section className="py-20 pt-30 bg-gradient-to-b from-muted-green/40 to-muted-green/20">
         <div className="max-w-7xl mx-auto  sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="font-josefin text-5xl font-bold text-deep-green mb-4">About Our Center</h1>

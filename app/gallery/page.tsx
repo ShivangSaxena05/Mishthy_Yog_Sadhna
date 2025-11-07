@@ -38,7 +38,7 @@ export default function Gallery() {
   return (
     <div className="min-h-screen" suppressHydrationWarning={true}>
       {/* Header */}
-      <section className="py-20 bg-gradient-to-b from-muted-green/40 to-muted-green/20">
+      <section className="py-20 pt-30 bg-gradient-to-b from-muted-green/40 to-muted-green/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-josefin text-5xl font-bold text-deep-green mb-4">Gallery</h1>
           <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
@@ -102,8 +102,8 @@ export default function Gallery() {
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-yellow-400/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-6 rounded-lg">
-                    <div>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-6 rounded-lg">
+                    <div className="bg-yellow-400/80 px-3 py-1 rounded">
                       <p className="text-deep-green font-semibold text-lg">{image.alt}</p>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default function Gallery() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 rounded-lg bg-deep-green text-soft-white font-semibold hover:shadow-lg hover:scale-105 transition"
+            className="inline-block px-8 py-3 rounded-lg bg-deep-green text-white font-semibold hover:shadow-lg hover:scale-105 transition"
           >
             Book a Visit Today
           </a>
