@@ -266,14 +266,14 @@ export default function Contact() {
           <h2 className="font-josefin text-4xl font-bold text-center text-deep-green mb-12">Our Location</h2>
           <div className="rounded-xl overflow-hidden shadow-lg h-96">
             <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1VnYC6EugmolDY9RjsZ77TeXstyj0288&q=Mishthy+Yog+Sadhna+II&center=27.1821581,77.9640482&zoom=17"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+      src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Mishthy+Yog+Sadhna+II&center=27.1821581,77.9640482&zoom=17`}
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
           </div>
         </div>
       </section>
