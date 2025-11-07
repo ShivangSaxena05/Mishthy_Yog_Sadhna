@@ -11,7 +11,7 @@ export default function About() {
   }, [])
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-muted-green/40 to-muted-green/20">
         <div className="max-w-7xl mx-auto  sm:px-6 lg:px-8">

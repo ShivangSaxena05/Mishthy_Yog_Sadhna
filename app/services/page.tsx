@@ -91,7 +91,7 @@ export default function Services() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Header Section */}
       <section className="py-20 bg-gradient-to-b from-muted-green/40 to-muted-green/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
