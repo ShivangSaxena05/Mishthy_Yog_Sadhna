@@ -72,6 +72,19 @@ const services: Service[] = [
       "Therapeutic sessions using hypnosis to overcome limiting beliefs, habits, and achieve your wellness goals.",
     benefits: ["Break limiting beliefs", "Overcome anxiety", "Improve confidence", "Personal transformation"],
   },
+  {
+    id: 7,
+    icon: "🎵",
+    title: "Sound Healing",
+    description:
+      "Therapeutic use of sound vibrations and frequencies to promote relaxation, reduce stress, and facilitate holistic healing.",
+    benefits: [
+      "Deep relaxation and stress reduction",
+      "Improved emotional balance",
+      "Enhanced sleep quality",
+      "Energy alignment and restoration",
+    ],
+  },
 ]
 
 export default function Services() {
@@ -137,9 +150,9 @@ export default function Services() {
       <section className="py-20 bg-gradient-to-b from-soft-white to-muted-green/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-80 bg-gradient-to-br from-muted-green to-muted-green rounded-xl flex items-center justify-center">
-              <div className="text-6xl animate-float">⚖️</div>
-            </div>
+          <div className="relative h-80 bg-gradient-to-br from-muted-green to-muted-green rounded-xl flex items-center justify-center">
+            <img src="https://mymodernmet.com/wp/wp-content/uploads/archive/yNkr5hUh4HG8YHmdhoUX_7dailymoves1.gif" alt="Girl exercising" className="w-full h-full object-contain rounded-xl" />
+          </div>
 
             <div>
               <h2 className="font-josefin text-4xl font-bold text-deep-green mb-6">

@@ -38,8 +38,7 @@ export default function Contact() {
           from_email: formData.email,
           phone: formData.phone || 'Not provided',
           subject: formData.subject,
-          message: formData.message,
-          to_email: 'your-email@example.com', // Replace with your email
+          message: formData.message, // Replace with your email
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
@@ -136,28 +135,14 @@ export default function Contact() {
                 {/* Map Link */}
                 <div>
                   <a
-                    href="https://maps.app.goo.gl/XAefSyx8P3zhsgCm7"
+                    href="https://www.google.com/maps/place/Mishthy+Yog+Sadhna+II/@27.1821581,77.9640482,17z/data=!4m6!3m5!1s0x397477dea686b719:0x48d4da21d690655d!8m2!3d27.1826258!4d77.9662905!16s%2Fg%2F11wc1wzgvy?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-6 py-2 rounded-lg bg-deep-green text-soft-white font-semibold hover:shadow-lg transition"
+                    className="inline-block mt-4 px-6 py-2 rounded-lg bg-deep-green text-white font-semibold hover:shadow-lg transition"
                   >
                     View on Google Maps
                   </a>
                 </div>
-              </div>
-
-              {/* Hours */}
-              <div className="mt-12 p-8 bg-muted-green/20 rounded-lg border border-muted-green/30">
-                <h3 className="font-josefin text-xl font-bold text-deep-green mb-4">Class Hours</h3>
-                <p className="text-foreground/80 mb-2">
-                  <strong>Monday - Friday:</strong> 6:00 AM - 9:00 PM
-                </p>
-                <p className="text-foreground/80 mb-2">
-                  <strong>Saturday:</strong> 7:00 AM - 6:00 PM
-                </p>
-                <p className="text-foreground/80">
-                  <strong>Sunday:</strong> By Appointment
-                </p>
               </div>
             </div>
 
@@ -281,7 +266,7 @@ export default function Contact() {
           <h2 className="font-josefin text-4xl font-bold text-center text-deep-green mb-12">Our Location</h2>
           <div className="rounded-xl overflow-hidden shadow-lg h-96">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.7439752089405!2d78.00813!3d27.17549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39751d0c82c6c701%3A0x5b8e8f8f8f8f8f8f!2s23%20A%2C%20Maruti%20Estate%20Rd!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1VnYC6EugmolDY9RjsZ77TeXstyj0288&q=Mishthy+Yog+Sadhna+II&center=27.1821581,77.9640482&zoom=17"
               width="100%"
               height="100%"
               style={{ border: 0 }}

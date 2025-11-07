@@ -4,17 +4,22 @@ import Link from "next/link";
 import FloatingChakras from "@/components/FloatingChakras";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { CheckCircle, Dumbbell, Sparkles, Brain, Zap, Scale } from "lucide-react";
+import { CheckCircle, Dumbbell, Sparkles, Brain, Zap, Scale, Volume2 } from "lucide-react";
 import Testimonials from "./Testimonials";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const checkDevice = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+    return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
   // 🎨 Helper function for responsive animations
@@ -73,63 +78,99 @@ export default function Home() {
 
 
 
-      {/* Why Choose Us - Corrected Structure */}
+      {/* Why Choose Us - Responsive Structure */}
       <section className="relative flex items-center justify-center min-h-[700px] lg:min-h-[900px] mt-20">
         <h2 className="absolute top-0 text-center text-5xl text-green-900 font-bold mt-8">Why Choose Us?</h2>
-        <div className="relative w-full h-full flex items-center justify-center">
-          {/* Center Image */}
-          <div className="absolute z-10">
-            <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-sage-300 shadow-2xl bg-gradient-to-br from-white to-sage-50">
-              <img src="/SapnaKulshreshtha.jpg" alt="Yoga Woman" className="w-full h-[330] object-cover" />
-            </div>
-          </div>
-
-          {/* Features */}
-          {(() => {
-            const radiusX = 400; // horizontal spread
-            const radiusY = 300; // vertical spread
-            const features = [
-              { title: "Personalized Attention", desc: "Individual guidance tailored to your unique needs and goals" },
-              { title: "Holistic Approach", desc: "Mind, body, and spirit wellness through integrated practices" },
-              { title: "Expert Instructor", desc: "Certified professional with 10+ years of experience" },
-              { title: "Affordable Excellence", desc: "Quality services at accessible prices for everyone" },
-              { title: "Proven Results", desc: "99% satisfaction rate with transformative outcomes" },
-              { title: "Spiritual Growth", desc: "Deepen your connection with your inner self and universe" },
-              { title: "Holistic Wellness", desc: "Comprehensive care addressing physical, mental, and spiritual health" },
-              { title: "Women & Kids Services", desc: "Dedicated space for women and children up to 18" },
-            ];
-
-            const angles = [200, 245, 150, 110, 70, 27, -20, -65];
-
-            return features.map((feature, i) => {
-              const rad = (angles[i] * Math.PI) / 180;
-              const x = Math.cos(rad) * radiusX;
-              const y = Math.sin(rad) * radiusY;
-
-              return (
+        <div className="relative w-full h-full flex items-center justify-center px-4">
+          {isMobile || isTablet ? (
+            // Grid layout for mobile/tablet
+            <div className="grid grid-cols-2 gap-4 w-full max-w-4xl">
+              {[
+                { title: "Personalized Attention", desc: "Individual guidance tailored to your unique needs and goals" },
+                { title: "Holistic Approach", desc: "Mind, body, and spirit wellness through integrated practices" },
+                { title: "Expert Instructor", desc: "Certified professional with 10+ years of experience" },
+                { title: "Affordable Excellence", desc: "Quality services at accessible prices for everyone" },
+                { title: "Proven Results", desc: "99% satisfaction rate with transformative outcomes" },
+                { title: "Spiritual Growth", desc: "Deepen your connection with your inner self and universe" },
+                { title: "Holistic Wellness", desc: "Comprehensive care addressing physical, mental, and spiritual health" },
+                { title: "Women & Kids Services", desc: "Dedicated space for women and children up to 18" },
+              ].map((feature, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-60 lg:w-48 p-4 rounded-xl bg-gradient-to-br from-white to-sage-50 hover:shadow-xl hover:scale-105 transition-all duration-500 border border-sage-200/50 backdrop-blur-sm flex flex-col items-center text-center shadow-lg z-20"
-                  style={{
-                    left: `calc(50% - 7.5rem + ${x}px)`, // 50% - half of item width (w-60) + offset
-                    top: `calc(50% - 5rem + ${y}px)`,
-                  }}
+                  className="p-4 rounded-xl bg-gradient-to-br from-white to-sage-50 hover:shadow-xl hover:scale-105 transition-all duration-500 border border-sage-200/50 backdrop-blur-sm flex flex-col items-center text-center shadow-lg"
                   initial={{ opacity: 0, scale: 0.3 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
                   viewport={{ once: false, amount: 0.2 }}
                 >
-                  <CheckCircle className="text-2xl lg:text-3xl text-forest-green mb-3 drop-shadow-sm" />
-                  <h3 className="font-poppins text-sm lg:text-base font-semibold text-deep-green mb-2 leading-tight">
+                  <CheckCircle className="text-2xl text-forest-green mb-3 drop-shadow-sm" />
+                  <h3 className="font-poppins text-sm font-semibold text-deep-green mb-2 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="font-poppins text-foreground/70 text-xs lg:text-sm leading-relaxed">
+                  <p className="font-poppins text-foreground/70 text-xs leading-relaxed">
                     {feature.desc}
                   </p>
                 </motion.div>
-              );
-            });
-          })()}
+              ))}
+            </div>
+          ) : (
+            // Circular layout for desktop
+            <>
+              {/* Center Image */}
+              <div className="absolute z-10">
+                <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-sage-300 shadow-2xl bg-gradient-to-br from-white to-sage-50">
+                  <img src="/SapnaKulshreshtha.jpg" alt="Yoga Woman" className="w-full h-[330] object-cover" />
+                </div>
+              </div>
+
+              {/* Features */}
+              {(() => {
+                const radiusX = 400; // horizontal spread
+                const radiusY = 300; // vertical spread
+                const features = [
+                  { title: "Personalized Attention", desc: "Individual guidance tailored to your unique needs and goals" },
+                  { title: "Holistic Approach", desc: "Mind, body, and spirit wellness through integrated practices" },
+                  { title: "Expert Instructor", desc: "Certified professional with 10+ years of experience" },
+                  { title: "Affordable Excellence", desc: "Quality services at accessible prices for everyone" },
+                  { title: "Proven Results", desc: "99% satisfaction rate with transformative outcomes" },
+                  { title: "Spiritual Growth", desc: "Deepen your connection with your inner self and universe" },
+                  { title: "Holistic Wellness", desc: "Comprehensive care addressing physical, mental, and spiritual health" },
+                  { title: "Women & Kids Services", desc: "Dedicated space for women and children up to 18" },
+                ];
+
+                const angles = [200, 245, 150, 110, 70, 27, -20, -65];
+
+                return features.map((feature, i) => {
+                  const rad = (angles[i] * Math.PI) / 180;
+                  const x = Math.cos(rad) * radiusX;
+                  const y = Math.sin(rad) * radiusY;
+
+                  return (
+                    <motion.div
+                      key={i}
+                      className="absolute w-60 lg:w-48 p-4 rounded-xl bg-gradient-to-br from-white to-sage-50 hover:shadow-xl hover:scale-105 transition-all duration-500 border border-sage-200/50 backdrop-blur-sm flex flex-col items-center text-center shadow-lg z-20"
+                      style={{
+                        left: `calc(50% - 7.5rem + ${x}px)`, // 50% - half of item width (w-60) + offset
+                        top: `calc(50% - 5rem + ${y}px)`,
+                      }}
+                      initial={{ opacity: 0, scale: 0.3 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
+                      viewport={{ once: false, amount: 0.2 }}
+                    >
+                      <CheckCircle className="text-2xl lg:text-3xl text-forest-green mb-3 drop-shadow-sm" />
+                      <h3 className="font-poppins text-sm lg:text-base font-semibold text-deep-green mb-2 leading-tight">
+                        {feature.title}
+                      </h3>
+                      <p className="font-poppins text-foreground/70 text-xs lg:text-sm leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </motion.div>
+                  );
+                });
+              })()}
+            </>
+          )}
         </div>
       </section>
 
@@ -314,6 +355,11 @@ export default function Home() {
                 icon: Zap,
                 title: "Hypnotherapy",
                 desc: "Transform limiting beliefs",
+              },
+              {
+                icon: Volume2,
+                title: "Sound Healing",
+                desc: "Harmonize your energy with sound vibrations",
               },
               {
                 icon: Scale,
