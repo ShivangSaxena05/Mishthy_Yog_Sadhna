@@ -29,11 +29,13 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Dynamic Island Navbar - Always Expanded */}
-      <nav className={`hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-background/80 backdrop-blur-md border border-muted-green/20 rounded-full px-6 py-2 shadow-lg transition-all duration-700 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+      <nav className={`hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-transparent backdrop-blur-md border border-muted-green/20 rounded-full px-6 py-2 shadow-lg transition-all duration-700 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         <div className="flex items-center space-x-6">
           {/* Logo/Brand Name */}
           <Link href="/" className="flex items-center gap-2 font-josefin text-lg font-bold text-deep-green hover:text-golden transition">
-            <img src="/gallery/logo.jpg" alt="Mishthy Yog Sadhna Logo" className="h-8 w-8 rounded-full object-cover" />
+            <div className="bg-white rounded-full p-1">
+              <img src="/gallery/logo.jpg" alt="Mishthy Yog Sadhna Logo" className="h-8 w-8 rounded-full object-cover" />
+            </div>
             Mishthy Yog SADHNA
           </Link>
 

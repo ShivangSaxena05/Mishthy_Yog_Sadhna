@@ -38,7 +38,7 @@ export default function Home() {
         <img
           src="/home.gif"
           alt="Home background"
-          className="absolute top-10 inset-0 w-full h-full object-cover object-center object-bottom opacity-30"
+          className="absolute inset-0 w-full h-full object-cover object-center object-bottom opacity-30"
         />
 
         <FloatingChakras />
